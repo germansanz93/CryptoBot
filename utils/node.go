@@ -1,8 +1,12 @@
 package utils
 
 type Node struct {
-	value uint64
+	value float64
 	next  *Node
+}
+
+func (node *Node) Value() float64 {
+	return node.value
 }
 
 func (node *Node) HasNext() bool {

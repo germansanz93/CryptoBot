@@ -3,18 +3,22 @@ package utils
 type Queue struct {
 	front  *Node
 	rear   *Node
-	length int
+	length float64
 }
 
-func (queue *Queue) Len() int {
+func (queue *Queue) Len() float64 {
 	return queue.length
+}
+
+func (queue *Queue) FirstNode() *Node {
+	return queue.rear
 }
 
 func (queue *Queue) isEmpty() bool {
 	return queue.length == 0
 }
 
-func (queue *Queue) Enqueue(v uint64) {
+func (queue *Queue) Enqueue(v float64) {
 	newNode := &Node{
 		value: v,
 		next:  nil,
@@ -40,7 +44,7 @@ func (queue *Queue) Dequeue() {
 	queue.length -= 1
 }
 
-func (queue *Queue) Sum() uint64 {
+func (queue *Queue) Sum() float64 {
 	node := queue.rear
 	sum := node.value
 
@@ -51,5 +55,4 @@ func (queue *Queue) Sum() uint64 {
 		node = node.next
 		sum += node.value
 	}
-
 }
